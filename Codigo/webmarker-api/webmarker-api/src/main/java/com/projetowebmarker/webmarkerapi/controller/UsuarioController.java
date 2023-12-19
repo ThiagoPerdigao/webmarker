@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.projetowebmarker.webmarkerapi.dto.UsuarioCreateDTO;
 import com.projetowebmarker.webmarkerapi.dto.UsuarioLoginResponseDTO;
+import com.projetowebmarker.webmarkerapi.exception.UsuarioExistenteException;
 import com.projetowebmarker.webmarkerapi.model.Usuario;
 import com.projetowebmarker.webmarkerapi.service.UsuarioService;
 
@@ -27,8 +28,12 @@ public class UsuarioController {
 
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody UsuarioCreateDTO usuarioDto) {
-        usuarioService.save(usuarioDto);
-        return ResponseEntity.ok().build();
+        try {
+            usuarioService.save(usuarioDto);
+            return ResponseEntity.ok().build();
+        } catch (UsuarioExistenteException e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Usuário já existe");
+        }
     }
 
     @PostMapping("/login")

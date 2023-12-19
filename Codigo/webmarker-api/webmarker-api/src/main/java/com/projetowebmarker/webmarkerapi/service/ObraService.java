@@ -37,6 +37,7 @@ public class ObraService {
     novaObra.setQtdCapitulos(obraCreateDTO.getQtdCapitulos());
     novaObra.setStatus(obraCreateDTO.getStatus());
     novaObra.setLidos(obraCreateDTO.getLidos());
+    novaObra.setNomeUsuario(obraCreateDTO.getNomeUsuario());
 
     return obraRepository.save(novaObra);
 }

@@ -14,4 +14,5 @@ public class ObraCreateDTO {
     private int qtdCapitulos;
     private String status;
     private int lidos;
+    private String nomeUsuario;
 }

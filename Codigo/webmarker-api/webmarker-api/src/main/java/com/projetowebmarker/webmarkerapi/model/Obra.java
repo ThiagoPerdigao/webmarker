@@ -28,4 +28,5 @@ public class Obra {
     private int qtdCapitulos;
     private String status;
     private int lidos;
+    private String nomeUsuario;
 }

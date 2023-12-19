@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const qtdCapitulos = document.getElementById("qtdCapitulos").value;
         const status = "Lendo";
         const lidos = 0;
+        const nomeUsuario = localStorage.getItem('usuario');
 
         // Cria um objeto com os dados
         const obrasData = {
@@ -20,7 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
             nota: nota,
             qtdCapitulos: qtdCapitulos,
             status: status,
-            lidos: lidos
+            lidos: lidos,
+            nomeUsuario: nomeUsuario
         };
 
         // Envia os dados para o backend
@@ -42,21 +44,23 @@ document.addEventListener("DOMContentLoaded", function () {
             location.reload();
     });
 
-    // Função para fazer a solicitação GET e exibir os dados no console
     function obterEExibirDados() {
-        // Faz uma solicitação GET para obter os dados do backend
+        const nomeUsuario = localStorage.getItem('usuario');
+    
         fetch("http://localhost:8080/obras")
             .then((response) => response.json())
             .then((dados) => {
+                const obrasDoUsuario = dados.filter(obra => obra.nomeUsuario === nomeUsuario);
+    
                 // Para cada conjunto de dados, chama a função para criar o card
-                dados.forEach((obra) => {
+                obrasDoUsuario.forEach((obra) => {
                     criarCard(obra);
                 });
             })
             .catch((error) => {
                 console.error("Erro ao obter dados:", error);
             });
-    }
+    }    
     obterEExibirDados();
 
 
@@ -115,13 +119,13 @@ document.addEventListener("DOMContentLoaded", function () {
             "list-unstyled mb-0 col-12 col-md-4 text-dark-l1 text-90 text-left my-4 my-md-0";
     
         const tipo = document.createElement("li");
-        tipo.innerHTML = `<i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i><span class="text-110">Tipo:</span> ${obra.tipo}`;
+        tipo.innerHTML = `<i class="fa text-110 mr-2 mt-1"></i><span class="text-110">Tipo:</span> ${obra.tipo}`;
     
         const status = document.createElement("li");
-        status.innerHTML = `<i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i><span class="text-110">Status: ${obra.status}</span>`;
+        status.innerHTML = `<i class="fa text-110 mr-2 mt-1"></i><span class="text-110">Status: ${obra.status}</span>`;
     
         const nota = document.createElement("li");
-        nota.innerHTML = `<i class="fa fa-times text-danger-m3 text-110 mr-25 mt-1"></i><span class="text-110">Nota: ${obra.nota}/5</span>`;
+        nota.innerHTML = `<i class="fa text-110 mr-25 mt-1"></i><span class="text-110">Nota: ${obra.nota}/5</span>`;
     
         // Coluna 3
         const col3 = document.createElement("div");
@@ -212,7 +216,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 return fetch(`http://localhost:8080/obras/${obraId}`);
             };
     
-            // Buscar a obraAtual
             buscarObraAtual()
                 .then((response) => {
                     if (response.ok) {
@@ -222,7 +225,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 })
                 .then((obraAtual) => {
-                    // Chamada da função para aumentar os 'lidos'
                     aumentarLidos(obraId, obraAtual);
                 })
                 .catch((error) => {
@@ -273,7 +275,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 return fetch(`http://localhost:8080/obras/${obraId}`);
             };
     
-            // Buscar a obraAtual
             buscarObraAtual()
                 .then((response) => {
                     if (response.ok) {
@@ -283,7 +284,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 })
                 .then((obraAtual) => {
-                    // Chamada da função para aumentar os 'lidos'
                     diminuirLidos(obraId, obraAtual);
                 })
                 .catch((error) => {

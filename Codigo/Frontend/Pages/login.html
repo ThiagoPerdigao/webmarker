@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+
+    <link href="../Styles/loginStyle.css" rel="stylesheet" type="text/css" />
+
+
+</head>
+
+
+
+
+<body style="background-color: 	#483D8B; overflow-x: hidden;">
+
+    
+
+    <div class="row marcador align-items-center">
+        <div class="col text-center" style="height: 150px;">
+            <img class="img-responsive" src="../imagens/logo.png" style="height: 270px; display: block; margin-left: auto; margin-right: auto;">
+        </div>
+    </div>
+    
+      
+    <section class="caixa">
+        <div class="main">
+            <input type="checkbox" id="chk" aria-hidden="true">
+
+            <div class="signup">
+                <form  id="cadastro-form">
+                    <label for="chk" aria-hidden="true">Cadastrar</label>
+                    <input type="text" id="usuarioCadastro" placeholder="Usuario" required>
+                    <input type="password" id="senhaCadastro" name="senhaCadastro" placeholder="Senha" required>
+                    <input type="password" id="senhaConfirm" name="senha" placeholder="Confirme a senha" required>
+                    <button id="button-submit" type="submit">Cadastrar</button>
+                </form>
+            </div>
+
+            <div class="login">
+                <form id="loginForm">
+                    <label for="chk" aria-hidden="true">Entrar</label>
+                    <form id="loginForm">
+                        <input type="text" id="usuario" name="usuario" placeholder="Usuario" required>
+                        <input type="password" id="senha" name="senha" placeholder="Senha" required>
+                        <button type="submit">Entrar</button>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+        <script src="../javascript/TelaDeLogin.js"></script>
+
+</body>
+
+
+
+
+
+
+</html>
