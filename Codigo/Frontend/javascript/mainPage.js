@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const status = "Lendo";
         const lidos = 0;
 
-        // Cria um objeto com os dados do funcionário
+        // Cria um objeto com os dados
         const obrasData = {
             titulo: titulo,
             tipo: tipo,

@@ -35,7 +35,7 @@ $(document).ready(function() {
                     alert("Login realizado com sucesso!");
                     localStorage.setItem('logado', 'true');
                     localStorage.setItem('tipoUsuario', data.tipo);
-                    window.location.href = "../Pages/homePage.html"
+                    window.location.href = "../Pages/mainPage.html"
                 } else {
                     alert("Erro ao realizar login. Verifique suas credenciais.");
                 }
