@@ -1,0 +1,337 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #272727 !important; 
+}
+
+
+/* Estruturas */
+
+.navbar {
+    background: radial-gradient(circle at 0% 0%, #5170FF, #FF66C4) !important;
+}
+
+.logo {
+    filter: drop-shadow(5px 5px 5px);
+}
+
+.lidos-total-container {
+    display: flex;
+    align-items: center;
+}
+
+.lidos {
+    font-size: 24px; /* Defina o tamanho da fonte para "Lidos" */
+}
+
+.total {
+    font-size: 18px; /* Defina um tamanho de fonte menor para "Total" */
+}
+
+.linhaEscura {
+    background-color: #D9D9D9;
+    padding: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font: bold;
+    font-size: 18px;
+}
+
+.linhaClara {
+    background-color: #E7E7E7;
+    padding: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font: bold;
+    font-size: 18px;
+}
+
+/* Estruturas fim */
+
+
+/* Inputs */
+
+.input {
+    border-radius: 0%;
+    border: none;
+    border-bottom: 3px solid #000 !important;
+    font-family: Arial, Helvetica, sans-serif;
+    font: bold;
+    outline: none;
+    height: 40px;
+    width: 200px;
+    text-align: center;
+    color: #000 !important;
+    margin: 5px;
+}
+
+.inputPequeno {
+    border-radius: 0%;
+    border: none;
+    border-bottom: 3px solid #000 !important;
+    font-family: Arial, Helvetica, sans-serif;
+    font: bold;
+    outline: none;
+    height: 40px;
+    width: 80px !important;
+    text-align: center;
+    color: #000 !important;
+    margin: 5px;
+}
+
+.input::placeholder {
+    color: rgb(68, 68, 68);
+}
+
+/* Inputs Fim */
+
+
+/* Botoes */
+
+.botaoRegistro {
+    background-color: #5170FF;
+    height: 40px;
+    width: 200px;
+    border-radius: 0%;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font: bold;
+    outline: none;
+    text-align: center;
+    color: #F5F5F5 !important;
+    margin: 5px;
+    font-weight: bold;
+}
+
+.botaoRegistro:focus {
+    outline: none;
+}
+
+.botaoRegistro:hover {
+    background-color: #3549a3;
+    transition: .3s;  
+}
+
+.botaoRegistro:active {
+    transform: scale(1.0);
+}
+
+.botaoEditar {
+    background-color: #FF66C4;
+    height: 40px;
+    width: 96px;
+    border-radius: 0%;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font: bold;
+    outline: none;
+    text-align: center;
+    color: #F5F5F5 !important;
+    margin-inline: 2px;
+}
+
+.botaoEditar:focus {
+    outline: none;
+}
+
+.botaoEditar:hover {
+    background-color: #a84381;
+    transition: .3s;  
+}
+
+.botaoEditar:active {
+    transform: scale(1.0);
+}
+
+.botaoAcessar {
+    background-color: #FF66C4;
+    height: 40px;
+    width: 98px !important;
+    border-radius: 0%;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font: bold;
+    outline: none;
+    text-align: center;
+    color: #F5F5F5 !important;
+    margin-inline: 2px;
+}
+
+.botaoAcessar:focus {
+    outline: none;
+}
+
+.botaoAcessar:hover {
+    background-color: #a84381;
+    transition: .3s;  
+}
+
+.botaoAcessar:active {
+    transform: scale(1.0);
+}
+
+
+.botaoExcluir {
+    background-color: #d00808;
+    height: 40px;
+    width: 96px;
+    border-radius: 0%;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font: bold;
+    outline: none;
+    text-align: center;
+    color: #F5F5F5 !important;
+    margin-inline: 2px;
+}
+
+.botaoExcluir:focus {
+    outline: none;
+}
+
+
+.botaoExcluir:hover {
+    background-color: #8a0505;
+    transition: .3s;
+}
+
+.botaoExcluir:active {
+    transform: scale(1.0);
+}
+
+.botaoExcluir:active {
+    transform: scale(1.0);
+}
+
+.botaoMenos {
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.botaoMenos img,
+.botaoMais img, .botaoPesquisa img {
+    height: 20px;
+}
+
+.botaoMenos:focus {
+    outline: none;
+}
+
+.botaoMenos:hover{
+    -xpedu-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    transform: scale(1.3);
+}
+
+.botaoMenos:active {
+    transform: scale(1.0);
+}
+
+.botaoMais:focus {
+    outline: none;
+}
+
+.botaoMais:hover{
+        -xpedu-transform: scale(1.3);
+        -ms-transform: scale(1.3);
+        transform: scale(1.3);   
+}
+
+.botaoMais:active {
+    transform: scale(1.0);
+}
+
+/* Botoes Fim */
+
+
+/* Especificos tela de login */
+
+.ladoDireitoLogin {
+    background-image: url(../imagens/angherFundo.jpg);
+    background-position: center center;
+    background-repeat: repeat !important;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.full-height {
+    height: 100vh !important;
+}
+
+.full-height input, .full-height select  {
+    width: 250px !important;
+    margin-top: 5vh !important;
+    border: solid #000 2px !important;
+    background-color: #E7E7E7;
+  }
+
+  .full-height .inputPequeno  {
+    width: 120px !important;
+    margin-top: 5vh !important;
+    border: solid #000 2px !important;
+    background-color: #E7E7E7;
+  }
+
+
+
+.full-height p {
+    margin-top: 15vh !important;
+    border-bottom: none !important;
+  }
+
+.full-height img {
+    height: 120px;
+    margin-top: 15vh !important;
+    margin-bottom: 10vh !important;
+}
+
+.full-height button {
+    width: 250px;
+    margin-top: 5vh !important;
+    border: solid #000 2px !important;
+}
+
+/* Fim especificos tela de login */
+
+/* Especificos tela de cadastro */
+
+.Manjari {
+    font-family: "Manjari", sans-serif;
+    font-weight: 100px;
+    font-style:normal;
+    font-size: 30px;
+}
+
+
+.ladoDireitoLista {
+    background-color: #272727;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-left: 3px solid #272727 !important;
+}
+
+.tabela {
+    max-height: calc(100vh - 145px) !important;
+    overflow-y: scroll !important;
+    white-space: nowrap !important;
+    background-color: #272727;
+    border-top: 3px solid #272727;
+}
+
+.ladoDireitoLista button {
+    width: 70px;
+    margin-top: 0vh !important;
+}
+
+
+.ladoEsquerdoForm {
+    background-color: #fff;
+    overflow-y: hidden !important;
+    white-space: nowrap !important;
+    border-top: 3px solid #272727;
+}
+/* Fim especificos tela de cad*/
+
