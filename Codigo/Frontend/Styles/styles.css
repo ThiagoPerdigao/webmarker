@@ -114,9 +114,6 @@ body {
     transition: .3s;  
 }
 
-.botaoRegistro:active {
-    transform: scale(1.0);
-}
 
 .botaoEditar {
     background-color: #FF66C4;
@@ -205,29 +202,14 @@ body {
     transform: scale(1.0);
 }
 
-.botaoMenos {
+.botaoMais {
     background-color: transparent;
-    border: none;
+    border: none !important;
     outline: none;
 }
 
-.botaoMenos img,
-.botaoMais img, .botaoPesquisa img {
+.botaoMais img {
     height: 20px;
-}
-
-.botaoMenos:focus {
-    outline: none;
-}
-
-.botaoMenos:hover{
-    -xpedu-transform: scale(1.3);
-    -ms-transform: scale(1.3);
-    transform: scale(1.3);
-}
-
-.botaoMenos:active {
-    transform: scale(1.0);
 }
 
 .botaoMais:focus {
@@ -235,9 +217,9 @@ body {
 }
 
 .botaoMais:hover{
-        -xpedu-transform: scale(1.3);
-        -ms-transform: scale(1.3);
-        transform: scale(1.3);   
+        -xpedu-transform: scale(1.0);
+        -ms-transform: scale(1.2);
+        transform: scale(1.1);   
 }
 
 .botaoMais:active {
@@ -248,13 +230,14 @@ body {
 
 
 /* Especificos tela de login */
+.ladoEsquerdoLogin {
+    background-color: #fff;
+    overflow-y: hidden !important;
+    white-space: nowrap !important;
+}
 
-.ladoDireitoLogin {
-    background-image: url(../imagens/angherFundo.jpg);
-    background-position: center center;
-    background-repeat: repeat !important;
-    background-attachment: fixed;
-    background-size: cover;
+.ladoDireitoCadastro {
+    background: radial-gradient(circle at 0% 0%, #5170FF, #FF66C4) !important
 }
 
 .full-height {
@@ -283,28 +266,30 @@ body {
   }
 
 .full-height img {
-    height: 120px;
-    margin-top: 15vh !important;
-    margin-bottom: 10vh !important;
+    margin-top: 5vh !important;
+    margin-bottom: 2vh !important;
 }
 
 .full-height button {
     width: 250px;
-    margin-top: 5vh !important;
+    margin-top: 5vh;
+    border: solid #000 2px !important;
+}
+
+.full-height .botaoMais {
+    border: none !important;
+    margin-top: 0vh !important;
+}
+
+.full-height .botaoExcluir {
+    width: 250px;
+    margin-top: 2vh !important;
     border: solid #000 2px !important;
 }
 
 /* Fim especificos tela de login */
 
 /* Especificos tela de cadastro */
-
-.Manjari {
-    font-family: "Manjari", sans-serif;
-    font-weight: 100px;
-    font-style:normal;
-    font-size: 30px;
-}
-
 
 .ladoDireitoLista {
     background-color: #272727;
@@ -333,5 +318,12 @@ body {
     white-space: nowrap !important;
     border-top: 3px solid #272727;
 }
+
 /* Fim especificos tela de cad*/
 
+.manjari {
+    font-family: "Manjari", sans-serif !important;
+    font-weight: 100px;
+    font-style:normal;
+    font-size: 30px;
+}

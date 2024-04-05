@@ -1,3 +1,12 @@
+// Método para validar a quantidade de leituras
+function validarQuantidadeLeituras(qtdLidos, qtdTotalCapitulos) {
+    // Verifica se a quantidade de lidos é maior que 0 e menor ou igual ao total de capítulos
+    if (parseInt(qtdLidos) < 0 || parseInt(qtdLidos) > parseInt(qtdTotalCapitulos)) {
+        return false; // Retorna falso se a quantidade de leituras não estiver no intervalo válido
+    }
+    return true; // Retorna verdadeiro se a quantidade de leituras for válida
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     const formulario = document.getElementById("formColeta");
     formulario.addEventListener("submit", function (e) {
@@ -12,6 +21,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const status = document.getElementById("status").value;
         const nota = 5;
         const nomeUsuario = localStorage.getItem('usuario');
+
+        // Verifica se a quantidade de lidos é válida
+        if (!validarQuantidadeLeituras(lidos, qtdCapitulos)) {
+            alert("A quantidade de leituras deve ser um valor entre 0 e o total de capítulos.");
+            return;
+        }
 
         // Cria um objeto com os dados 
         const obraData = {
@@ -37,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
             .then((response) => response.json())
             .then((data) => {
-                console.log("Item cadastrada com sucesso:", data);
+                console.log("Item cadastrado com sucesso:", data);
                 formulario.reset();
             })
             .catch((error) => {
@@ -48,7 +63,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-function preencherTabela(orderType) {
+
+
+
+function preencherTabela() {
     const nomeUsuario = localStorage.getItem('usuario');
 
     fetch('http://localhost:8080/obras')
@@ -59,11 +77,6 @@ function preencherTabela(orderType) {
             return response.json();
         })
         .then((data) => {
-            if (orderType === 'name') {
-                data.sort((a, b) => a.nome.localeCompare(b.titulo));
-            } else if (orderType === 'type') {
-                data.sort((a, b) => a.categoria.localeCompare(b.categoria));
-            }
 
             const obrasUsuario = data.filter(obra => obra.nomeUsuario === nomeUsuario);
 
@@ -74,53 +87,109 @@ function preencherTabela(orderType) {
                 const linhaClass = index % 2 === 0 ? 'linhaEscura' : 'linhaClara';
 
                 const newRow = `
-                <div class="${linhaClass}">
-                    <div class="row align-middle text-center">
-                        <div class="col">
+                    <div class="${linhaClass}">
+                        <div class="row align-middle text-center">
                             <div class="col">
-                                <div class="row">${obra.titulo}</div>
-                                <div class="row mt-2">${obra.tipo}</div>
+                                <div class="col">
+                                    <div class="row">${obra.titulo}</div>
+                                    <div class="row mt-2">${obra.tipo}</div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="row lidos-total-container mx-auto">
+                                    <div class="lidos">${obra.lidos}</div>
+                                    <div class="mx-1">-</div>
+                                    <div class="total">${obra.qtdCapitulos}</div>
+                                </div>
+                                <div class="row">
+                                    <button class="botaoMais" data-id="${obra.id}"><img src="../images/mais.png" class="botaoMais" alt=""></button>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="row">${obra.status}</div>
+                            </div>
+                            <div class="col">
+                                <button class="botaoAcessar" onclick="window.open('${obra.link}', '_blank')">Acessar</button>
+                                <button type="submit" class="botaoEditar" data-id="${obra.id}">Editar</button>
                             </div>
                         </div>
-                
-                        <div class="col">
-                            <div class="row lidos-total-container">
-                                <div class="lidos">${obra.lidos}</div>
-                                <div class="mx-1">-</div>
-                                <div class="total">${obra.qtdCapitulos}</div>
-                            </div>
-                            <div class="row">
-                                <div class="total">${obra.status}</div>
-                            </div>
-                        </div>
-                
-                        <div class="col">
-                            <button class="botaoAcessar" onclick="window.open('${obra.link}', '_blank')">Acessar</button>
-                            <button type="submit" class="botaoEditar" data-id="${obra.id}">Editar</button>
-                        </div>
-                    </div>
-                </div>
-                `;
+                    </div>`;
                 tabela.insertAdjacentHTML('beforeend', newRow);
             });
-            
+
             // Adicionar eventos de clique aos botões "Editar"
             const botoesEditar = document.querySelectorAll('.botaoEditar');
             botoesEditar.forEach((botao) => {
                 botao.addEventListener('click', () => {
                     const idObra = botao.getAttribute('data-id');
-                    window.location.href = `../Pages/editarObras.html?id=${idObra}`;
+                    window.location.href = `../Pages/editPage.html?id=${idObra}`;
+                });
+            });
+
+            // Adicionar eventos de clique aos botões "Mais"
+            const botoesMais = document.querySelectorAll('.botaoMais');
+            botoesMais.forEach((botao) => {
+                botao.addEventListener('click', () => {
+                    const idItem = botao.getAttribute('data-id');
+
+                    fetch(`http://localhost:8080/obras/${idItem}`)
+                        .then((response) => {
+                            if (!response.ok) {
+                                throw new Error('Erro ao obter os dados do item');
+                            }
+                            return response.json();
+                        })
+                        .then((data) => {
+                            // Verificar se a nova quantidade será maior que lidos
+                            const novaQuantidade = data.lidos + 1;
+                            if (novaQuantidade > data.qtdCapitulos) {
+                                alert('A quantidade não pode ser maior que o total de capítulos');
+                                return;
+                            }
+
+                            // Enviar os dados atualizados através de uma requisição PUT
+                            const itemAtualizadoData = {
+                                titulo: data.titulo,
+                                tipo: data.tipo,
+                                link: data.link,
+                                nota: data.nota,
+                                qtdCapitulos: data.qtdCapitulos,
+                                status: data.status,
+                                lidos: novaQuantidade
+                            };
+
+                            fetch(`http://localhost:8080/obras/${idItem}`, {
+                                method: 'PUT',
+                                headers: {
+                                    "Content-Type": "application/json",
+                                },
+                                body: JSON.stringify(itemAtualizadoData),
+                            })
+                                .then((response) => {
+                                    if (!response.ok) {
+                                        throw new Error('Erro ao atualizar a quantidade do item');
+                                    }
+                                    // Atualizar a tabela após a atualização
+                                    preencherTabela();
+                                })
+                                .catch((error) => {
+                                    console.error('Erro ao atualizar a quantidade do item:', error);
+                                });
+                        })
+                        .catch((error) => {
+                            console.error('Erro ao obter os dados do item:', error);
+                        });
                 });
             });
         })
-        .catch(error => console.error(error));  
+        .catch(error => console.error(error));
 }
+
 
 
     
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    const orderType = name;
-    preencherTabela(orderType);
+    preencherTabela();
 });

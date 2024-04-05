@@ -18,15 +18,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&display=swap" rel="stylesheet">
 
 
-    <script src="../javascript/mainPage.js"></script>
-    <script src="../javascript/loginCheck.js"></script>
+    <script src="../javascript/editPage.js"></script>
+
 
 </head>
 
 <body>
     <nav class="navbar navbar-transparent">
         <div class="logo">
-            <a class="navbar-brand" href="../Pages/loginPage.html">
+            <a class="navbar-brand" href="../Pages/mainPage.html">
              <img src="../images/seta.png" height="50" alt="">
              </a>
         </div>
@@ -37,10 +37,10 @@
              </a>
     </nav>
 
-    <div class="container-fluid full-height">
+    <div class="container-fluid full-height" style="background-color: #fff; border: solid #000 2px !important;">
         <div class="row full-height">
             
-          <form class="col-sm-6 ladoEsquerdoForm" id="formColeta">
+          <form class="col-sm-6 mx-auto" id="formEditar">
 
             <div class="col text-center">
 
@@ -79,30 +79,19 @@
                         <option value="Hiato">Hiato</option>
                       </select>
                 </div>
-
                 <div class="row">
                     <button type="submit" id="submitButton" class="botaoRegistro mx-auto">Registrar</button>
+                </div>
+                <div class="row">
+                    <button type="submit" id="submitButton" class="botaoExcluir mx-auto">Excluir</button>
                 </div>
             </form>
           </div>
 
-
-        <div class="col-sm-6 ladoDireitoLista">
-        
-            <div class="tabela" id="tabela">
-
-                
+ 
             
-                
         </div>
-    </div>     
-        
-
-
-
-
-            
-            </div>
+          
     
 </body>
 <!-- Configuração especifica para esta página -->

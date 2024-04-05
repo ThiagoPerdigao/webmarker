@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const idObra = urlParams.get('id');
  
     // Seletor do formulário de edição
-    const formEditar = document.getElementById('editarForm');
+    const formEditar = document.getElementById('formEditar');
  
     // Adicione um ouvinte de evento de envio ao formulário
     formEditar.addEventListener('submit', function (event) {
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const titulo = document.getElementById("titulo").value;
         const link = document.getElementById("link").value;
         const tipo = document.getElementById("tipo").value;
-        const nota = document.getElementById("nota").value;
+        const nota = 5;
         const qtdCapitulos = document.getElementById("qtdCapitulos").value;
         const status = document.getElementById("status").value;
         const lidos = document.getElementById("lidos").value;
@@ -62,7 +62,6 @@ document.addEventListener('DOMContentLoaded', function () {
           document.getElementById('link').value = obra.link;
           document.getElementById('qtdCapitulos').value = obra.qtdCapitulos;
           document.getElementById('tipo').value = obra.tipo;
-          document.getElementById('nota').value = obra.nota;
           document.getElementById('status').value = obra.status;
           document.getElementById('lidos').value = obra.lidos;
        })
@@ -70,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
           console.error('Erro ao buscar os dados', error);
        });
 
-       const botoesExcluir = document.querySelectorAll('.btn-excluir');
+       const botoesExcluir = document.querySelectorAll('.botaoExcluir');
             botoesExcluir.forEach((botao) => {
                 botao.addEventListener('click', () => {
                     const idObra = urlParams.get('id');

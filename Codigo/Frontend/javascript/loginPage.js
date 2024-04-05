@@ -78,35 +78,21 @@ $(document).ready(function () {
                 },
                 body: JSON.stringify(userData)
             })
-                .then(response => {
-                    if (!response.ok) {
-                        if (response.status === 409) {
-                            // Código 409 indica conflito, ou seja, usuário já existente
-                            throw new Error('Usuário já cadastrado');
-                        } else {
-                            throw new Error('Erro ao cadastrar usuário');
-                        }
-                    }
-                    if (response.status === 204) {
-                        // Resposta vazia indica sucesso
-                        alert("Cadastro realizado com sucesso!");
+            .then(response => {
+                if (!response.ok) {
+                    if (response.status === 409) {
+                        // Código 409 indica conflito, ou seja, usuário já existente
+                        throw new Error('Usuário já cadastrado');
                     } else {
-                        return response.json();
+                        throw new Error('Erro ao cadastrar usuário');
                     }
-                })
-                .then(data => {
-                    if (data) {
-                        console.log(data);
-                    }
-                })
-                .catch(error => {
-                    console.error('Erro na solicitação:', error);
-                    if (error.message === 'Usuário já cadastrado') {
-                        alert("Usuário já cadastrado. Por favor, escolha outro nome de usuário.");
-                    } else {
-                        alert("Cadastro realizado com sucesso!");
-                    }
-                });
+                }
+                window.location.reload();
+            })
+            .catch(error => {
+                console.error('Erro na solicitação:', error);
+                alert("Erro ao cadastrar usuário. Verifique sua conexão e tente novamente.");
+            });
         });
     }
 });
