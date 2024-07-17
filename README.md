@@ -2,6 +2,13 @@
 
 O WebMarker é uma aplicação web projetada para facilitar a organização e o acompanhamento das suas leituras. Com esta ferramenta intuitiva, você pode registrar, editar e excluir facilmente informações sobre as obras que está lendo, mantendo-se sempre atualizado e organizado.
 
+## Tecnologias Utilizadas
+
+* HTML e CSS: Estruturam e estilizam as páginas do aplicativo, garantindo uma interface visualmente atraente e responsiva.
+* JavaScript: Responsável pela interatividade na interface do usuário, validação de formulários e atualizações dinâmicas de conteúdo.
+* Java Spring Boot: Framework robusto para o desenvolvimento de APIs RESTful, facilitando a integração do back-end com o front-end do aplicativo.
+* MySQL: Banco de dados relacional utilizado para armazenar e gerenciar os dados das leituras dos usuários de forma segura e eficiente.
+
 ## Funcionalidades em destaque
 
 * Registro de Leituras: Adicione novos livros à sua lista de leitura com detalhes como título, link e progresso.
