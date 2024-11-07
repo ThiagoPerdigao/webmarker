@@ -4,8 +4,8 @@ O WebMarker é uma aplicação web projetada para facilitar a organização e o 
 
 ## NOVA VERSÃO 
 
-[![Versão Mobile Disponível](http://img.shields.io/static/v1?label=VERS%C3%83O%20MOBILE%20DISPON%C3%8DVEL&message=&color=blue&style=for-the-badge)][link]
-[![Clique para Acessar](http://img.shields.io/static/v1?label=&message=CLIQUE%20PARA%20ACESSAR&color=green&style=for-the-badge)](https://github.com/ThiagoPerdigao/webmarkermobile)
+[![Badge Status](https://img.shields.io/badge/VERS%C3%83O%20MOBILE%20DISPON%C3%8DVEL-CLIQUE%20PARA%20ACESSAR-blue?style=for-the-badge)](https://github.com/ThiagoPerdigao/webmarkermobile)
+
 
 
 
