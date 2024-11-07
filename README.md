@@ -2,6 +2,12 @@
 
 O WebMarker é uma aplicação web projetada para facilitar a organização e o acompanhamento das suas leituras. Com esta ferramenta intuitiva, você pode registrar, editar e excluir facilmente informações sobre as obras que está lendo, mantendo-se sempre atualizado e organizado.
 
+## NOVA VERSÃO 
+
+[![Badge Status](http://img.shields.io/static/v1?label=VERS%C3%83O%20MOBILE&message=DISPON%C3%8DVEL%20%7C%20IR&color=blue&style=for-the-badge)](https://github.com/ThiagoPerdigao/webmarkermobile)
+
+
+
 ## Tecnologias Utilizadas
 
 * HTML e CSS: Estruturam e estilizam as páginas do aplicativo, garantindo uma interface visualmente atraente e responsiva.
